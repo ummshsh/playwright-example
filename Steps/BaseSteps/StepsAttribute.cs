@@ -10,7 +10,7 @@ namespace Steps.BaseSteps
         [Advice(Kind.Before)]
         public void LogStep([Argument(Source.Name)] string name)
         {
-            Console.WriteLine($"Calling '{name}' method...");
+            Console.WriteLine($"Calling Step:'{name}'");
             // TODO: add integration with reporting tools
         }
     }

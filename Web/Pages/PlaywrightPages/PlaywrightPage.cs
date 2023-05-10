@@ -5,14 +5,16 @@ namespace Web.Pages.PlaywrightPages
 {
     public class PlaywrightPage : BasePage
     {
-        public PlaywrightPage(IPage page, string pageUrl) : base(page, pageUrl)
-        {
+        public PlaywrightPageHeader PlaywrightPageHeader { get; init; }
 
+        public PlaywrightPage(IPage page) : base(page, "https://playwright.dev/dotnet/")
+        {
+            PlaywrightPageHeader = new PlaywrightPageHeader(page);
         }
 
         public override Task WaitForLoading()
         {
-            return base.WaitForLoading();
+            return Task.CompletedTask;
         }
     }
 }

@@ -5,17 +5,18 @@ namespace AutomationCore.Web
     public abstract class BasePage
     {
         private readonly IPage _page;
-        private readonly string pageUrl;
 
-        public BasePage(IPage page, string pageUrl)
+        public string PageUrl { get; init; }
+
+        protected BasePage(IPage page, string pageUrl)
         {
             _page = page;
-            this.pageUrl = pageUrl;
+            PageUrl = pageUrl;
         }
 
         public async Task Open()
         {
-            await _page.GotoAsync(pageUrl);
+            await _page.GotoAsync(PageUrl);
             await WaitForLoading();
         }
 

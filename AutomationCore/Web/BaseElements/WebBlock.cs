@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Playwright;
 
 namespace AutomationCore.Web.Elements
 {
-    internal class WebBlock
+    public class WebBlock
     {
+        public IPage ParentPage { get; init; }
+        public ILocator Self { get; set; }
+
+        public WebBlock(IPage parentPage, ILocator self)
+        {
+            ParentPage = parentPage;
+            Self = self;
+        }
     }
 }
